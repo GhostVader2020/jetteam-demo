@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +20,6 @@
       <button class="burger" aria-label="Toggle menu">☰</button>
     </div>
   </nav>
-
   <header class="container hero">
     <div>
       <h1>Indie Beats — Music Notes & Finds</h1>
@@ -32,19 +30,14 @@
       </div>
     </div>
     <div class="hero-visual" aria-label="Visual">
-      <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1800&auto=format&fit=crop" alt="Hero visual">
+      <img src="./assets/hero.jpg" alt="Hero visual" loading="lazy">
     </div>
   </header>
-
   <main class="container">
     <section id="about" class="section">
       <h2 style="margin-top:0;">About</h2>
-      <p>
-        This is a simple, static page designed for embedding within enterprise systems like JetTeam.
-        It is mobile-first, loads over HTTPS, and avoids restrictive headers so it can be iframed.
-      </p>
+      <p>This site uses <strong>local images</strong> to ensure reliable rendering in iframes and on GitHub Pages.</p>
     </section>
-
     <section id="features" class="section">
       <h2 style="margin-top:0;">Features</h2>
       <div class="grid cols-3">
@@ -53,14 +46,10 @@
         <article class="card"><h3>Lightweight</h3><p>No frameworks; fast to load and easy to host.</p></article>
       </div>
     </section>
-
     <section id="interactive" class="section">
       <h2 style="margin-top:0;">Interactive Demo</h2>
-      <div class="card" id="interactive-wrap">
-        <!-- Filled by per-site JS -->
-      </div>
+      <div class="card" id="interactive-wrap"></div>
     </section>
-
     <section id="contact" class="section">
       <h2 style="margin-top:0;">Contact</h2>
       <form id="contactForm" class="grid cols-2" aria-label="Contact form">
@@ -72,9 +61,7 @@
       <p id="formStatus" class="subtitle" role="status" aria-live="polite" style="margin-top:.5rem;"></p>
     </section>
   </main>
-
   <footer class="footer container">© 2025 Demo site.</footer>
-
   <script src="./script.js"></script>
 </body>
 </html>
