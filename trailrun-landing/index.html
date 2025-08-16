@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrailRun Club — Find Your Pace</title>
+  <meta name="description" content="A clean landing page for a local trail running club with a simple image slider and CTA.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <nav>
+    <div class="container nav-wrap">
+      <div class="brand">TrailRun Club <small>Sports / Landing Page</small></div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+        <a href="../index.html">All Sites</a>
+      </div>
+      <button class="burger" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="container hero">
+    <div>
+      <h1>TrailRun Club — Find Your Pace</h1>
+      <p class="subtitle">A clean landing page for a local trail running club with a simple image slider and CTA.</p>
+      <div style="display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem;">
+        <a class="btn" href="#features">See features</a>
+        <a class="btn secondary" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Visual">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1800&auto=format&fit=crop" alt="Hero visual">
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2 style="margin-top:0;">About</h2>
+      <p>
+        This is a simple, static page designed for embedding within enterprise systems like JetTeam.
+        It is mobile-first, loads over HTTPS, and avoids restrictive headers so it can be iframed.
+      </p>
+    </section>
+
+    <section id="features" class="section">
+      <h2 style="margin-top:0;">Features</h2>
+      <div class="grid cols-3">
+        <article class="card"><h3>Responsive</h3><p>Layouts adapt from 360px phones to large desktops.</p></article>
+        <article class="card"><h3>Accessible</h3><p>Semantic HTML, labeled buttons, adequate contrast.</p></article>
+        <article class="card"><h3>Lightweight</h3><p>No frameworks; fast to load and easy to host.</p></article>
+      </div>
+    </section>
+
+    <section id="interactive" class="section">
+      <h2 style="margin-top:0;">Interactive Demo</h2>
+      <div class="card" id="interactive-wrap">
+        <!-- Filled by per-site JS -->
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 style="margin-top:0;">Contact</h2>
+      <form id="contactForm" class="grid cols-2" aria-label="Contact form">
+        <input required name="name" placeholder="Your name" style="padding:.75rem; border-radius:.75rem; border:1px solid rgba(255,255,255,.1); background:#0c1022; color:white;">
+        <input required type="email" name="email" placeholder="you@example.com" style="padding:.75rem; border-radius:.75rem; border:1px solid rgba(255,255,255,.1); background:#0c1022; color:white;">
+        <textarea required name="message" placeholder="Say hello..." rows="4" style="grid-column:1/-1;padding:.75rem; border-radius:.75rem; border:1px solid rgba(255,255,255,.1); background:#0c1022; color:white;"></textarea>
+        <button class="btn" type="submit">Send</button>
+      </form>
+      <p id="formStatus" class="subtitle" role="status" aria-live="polite" style="margin-top:.5rem;"></p>
+    </section>
+  </main>
+
+  <footer class="footer container">© 2025 Demo site.</footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

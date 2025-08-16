@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iframe Tester</title>
+  <link rel="stylesheet" href="../hub.css">
+</head>
+<body>
+  <nav>
+    <div class="container nav-wrap">
+      <div class="brand">Iframe Tester <small>utility</small></div>
+      <div class="menu">
+        <a href="../index.html">Home</a>
+      </div>
+      <button class="burger" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <main class="container section">
+    <h1 style="margin-top:0;">Check if a URL can load inside an iframe</h1>
+    <p class="subtitle">Paste a full URL (https://...) below and click <em>Test</em>. If the site disallows framing via <code>X-Frame-Options</code> or <code>Content-Security-Policy</code>, it will fail to render.</p>
+    <div class="card">
+      <label for="url">URL</label>
+      <input id="url" type="url" placeholder="https://example.com" style="width:100%; padding:.75rem; border-radius:.75rem; border:1px solid rgba(255,255,255,.1); background:#0c1022; color:white; margin:.5rem 0 1rem;">
+      <button id="test" class="btn">Test</button>
+      <div id="status" style="margin-top:1rem; color:#9aa3b2;"></div>
+    </div>
+    <div id="frameWrap" class="hero-visual" style="margin-top:1rem; min-height:300px;">
+      <iframe id="frame" title="Preview" style="width:100%; height:100%; border:0; display:none;"></iframe>
+    </div>
+    <div class="card" style="margin-top:1rem;">
+      <h3 style="margin-top:0;">What this test tells you</h3>
+      <ul>
+        <li>If the page renders, it is likely embeddable in JetTeam (subject to JetTeam's own CSP/permissions).</li>
+        <li>If it fails, check hosting headers for <code>X-Frame-Options</code> and <code>Content-Security-Policy: frame-ancestors</code>.</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="../hub.js"></script>
+  <script>
+    const frame = document.getElementById('frame');
+    const status = document.getElementById('status');
+    document.getElementById('test').addEventListener('click', () => {
+      const url = document.getElementById('url').value.trim();
+      if (!/^https?:\/\//i.test(url)) { status.textContent = 'Please enter a valid http(s) URL.'; return; }
+      status.textContent = 'Loading...';
+      frame.style.display = 'block';
+      frame.src = url;
+      const start = Date.now();
+      const timer = setTimeout(() => {
+        status.textContent = 'Timeout. If the frame is blank, the site may block embedding.';
+      }, 6000);
+      frame.onload = () => {
+        clearTimeout(timer);
+        const elapsed = ((Date.now() - start)/1000).toFixed(1);
+        status.textContent = 'Loaded in ' + elapsed + 's. If content is visible below, framing is allowed.';
+      };
+    });
+  </script>
+</body>
+</html>
